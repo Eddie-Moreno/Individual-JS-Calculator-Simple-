@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Calculator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+	<style>
+		#display {
+			font-size: 2em;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<h1 class="col-12 text-center mt-5">JS Calculator</h1>
+		</div> <!-- .row -->
+		<div class="row">
+			<div id="calculator" class="mt-4 col-12 col-md-6 ml-md-auto mr-md-auto col-lg-4">
+				<div class="row">
+					<input type="text" id="display" class="col-12 text-right form-control" value="0">
+				</div> <!-- .row -->
+				<div class="row">
+					<button class="col-9 btn btn-lg btn-outline-dark" id="ac">AC</button> <!-- 0 -->
+					<button class="col-3 btn btn-lg btn-outline-dark" id="divide">/</button> <!-- 1 -->
+				</div> <!-- .row -->
+				<div class="row">
+					<button id="seven" class="col-3 btn btn-lg btn-outline-dark">7</button> <!-- 2 -->
+					<button id="eight" class="col-3 btn btn-lg btn-outline-dark">8</button> <!-- 3 -->
+					<button id="nine" class="col-3 btn btn-lg btn-outline-dark">9</button> <!-- 4 -->
+					<button class="col-3 btn btn-lg btn-outline-dark" id="multiply">x</button> <!-- 5 -->
+				</div> <!-- .row -->
+				<div class="row">
+					<button id="four" class="col-3 btn btn-lg btn-outline-dark">4</button> <!-- 6 -->
+					<button id="five" class="col-3 btn btn-lg btn-outline-dark">5</button> <!-- 7 -->
+					<button id="six" class="col-3 btn btn-lg btn-outline-dark">6</button> <!-- 8 -->
+					<button class="col-3 btn btn-lg btn-outline-dark" id="subtract">-</button> <!-- 9 -->
+				</div> <!-- .row -->
+				<div class="row">
+					<button id="one" class="col-3 btn btn-lg btn-outline-dark">1</button> <!-- 10 -->
+					<button id="two" class="col-3 btn btn-lg btn-outline-dark">2</button> <!-- 11 -->
+					<button id="three" class="col-3 btn btn-lg btn-outline-dark">3</button> <!-- 12 -->
+					<button class="col-3 btn btn-lg btn-outline-dark" id="add">+</button> <!-- 13 -->
+				</div> <!-- .row -->
+				<div class="row">
+					<button id="zero" class="col-6 btn btn-lg btn-outline-dark">0</button> <!-- 14 -->
+					<button class="col-3 btn btn-lg btn-outline-dark" id="decimal">.</button> <!-- 15 -->
+					<button class="col-3 btn btn-lg btn-outline-dark" id="equal">=</button> <!-- 16 -->
+				</div> <!-- .row -->
+			</div> <!-- #calculator -->
+		</div> <!-- .row -->
+	</div> <!-- .container -->
+
+	<script>
+        	/*
+			1. User enters the first number (could be multi-digit)
+				a. String concatenation
+			2. User presses an operation (addition, subtraction, multiplication, or division)
+			3. User enters the second number (could be multi-digit)
+			4. User presses = button to see the result
+			5. User presses AC button to clear the display (show 0)
+		    */
+
+		    /*
+			1. Make 'display' variable
+			2. Save 'display' into 'num1' 
+			3. Clear 'display' variable
+		    */
+
+		let display = document.querySelector("#display").value
+		let computation
+		let numOne
+
+		document.querySelector("#one").onclick = function(){
+			display = display + "1"
+			display = parseInt(display)
+			document.querySelector("#display").value = display
+		}
+
+		document.querySelector("#two").onclick = function(){
+			display = display + "2"
+			display = parseInt(display)
+			document.querySelector("#display").value = display
+		}
+
+		document.querySelector("#three").onclick = function(){
+			display = display + "3"
+			display = parseInt(display)
+			document.querySelector("#display").value = display
+		}
+
+		document.querySelector("#four").onclick = function(){
+			display = display + "4"
+			display = parseInt(display)
+			document.querySelector("#display").value = display
+		}
+
+		document.querySelector("#five").onclick = function(){
+			display = display + "5"
+			display = parseInt(display)
+			document.querySelector("#display").value = display
+		}
+
+		document.querySelector("#six").onclick = function(){
+			display = display + "6"
+			display = parseInt(display)
+			document.querySelector("#display").value = display
+		}
+
+		document.querySelector("#seven").onclick = function(){
+			display = display + "7"
+			display = parseInt(display)
+			document.querySelector("#display").value = display
+		}
+
+		document.querySelector("#eight").onclick = function(){
+			display = display + "8"
+			display = parseInt(display)
+			document.querySelector("#display").value = display
+		}
+		
+		document.querySelector("#nine").onclick = function(){
+			display = display + "9"
+			display = parseInt(display)
+			document.querySelector("#display").value = display
+		}
+
+		document.querySelector("#zero").onclick = function(){
+			display = display + "0"
+			display = parseInt(display)
+			document.querySelector("#display").value = display
+		}
+
+		document.querySelector("#add").onclick = function(){
+			numOne = display
+			display = "0"
+			computation = "+"
+			document.querySelector("#display").value = "+"
+		}
+
+		document.querySelector("#subtract").onclick = function(){
+			numOne = display
+			display = "0"
+			computation = "-"
+			document.querySelector("#display").value = "-"
+		}
+
+		document.querySelector("#multiply").onclick = function(){
+			numOne = display
+			display = "0"
+			computation = "x"
+			document.querySelector("#display").value = "x"
+		}
+
+		document.querySelector("#divide").onclick = function(){
+			numOne = display
+			display = "0"
+			computation = "/"
+			document.querySelector("#display").value = "/"
+		}
+	
+		document.querySelector("#ac").onclick = function() {
+			display = "0"
+			document.querySelector("#display").value = "0"
+		}
+
+		document.querySelector("#equal").onclick = function(){
+			let numTwo = document.querySelector("#display").value
+			numTwo = parseInt(numTwo)
+			let answer
+			console.log(numOne)
+			console.log(computation)
+			console.log(numTwo)
+			if (computation == "+"){
+				answer = numOne + numTwo
+			}
+			else if (computation == "-"){
+				answer = numOne - numTwo
+			}
+			else if (computation == "x"){
+				answer = numOne * numTwo
+			} 
+			else if (computation == "/"){
+				answer = numOne / numTwo
+			}
+			document.querySelector("#display").value = answer
+			display = answer
+		}
+	</script>
+</body>
+</html>
